@@ -9,21 +9,27 @@ class Counter extends Component {
         fontSize: '10px',
         fontWeight: 'bold'
     };
-    
-    render() { 
+     increment = () => {
+         this.setState({count: this.state.count+1});
+     }
+     decrement = () =>{
+         this.setState({count: this.state.count -1});
+     }
+    render() {  
         let classes = this.getBadgeClases();   
         return (
        // <React.Fragm> {/*short syntax for <>*/}
         //  </React.Fragm>
         
         <div>
+            <button onClick={this.decrement} className='btn btn-secondary btn-sm'>Decrement</button> 
             <span style = {{fontSize: 30}} className= {classes}> {this.formatCount()}</span>
-            <button className='btn btn-secondary btn-sm'>Increment</button>
+                    <button onClick={this.increment} className='btn btn-secondary btn-sm'>Increment</button>
             <ul>{
-                this.renderTags()  
+                this.renderComponenets()  
                 }             
             </ul>
-         </div>
+         </div> 
         )
     }
     getBadgeClases() {
